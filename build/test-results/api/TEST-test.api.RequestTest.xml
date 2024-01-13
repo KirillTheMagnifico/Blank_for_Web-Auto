@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.api.RequestTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-03-24T10:27:44" hostname="192.168.1.10" time="2.351">
+  <properties/>
+  <testcase name="UnsuccessfulLoginTest()" classname="test.api.RequestTest" time="1.311"/>
+  <testcase name="unSuccessfulLoginWithMissingEmailTest()" classname="test.api.RequestTest" time="0.293"/>
+  <testcase name="unSuccessfulLoginWithMissingPasswordTest()" classname="test.api.RequestTest" time="0.229"/>
+  <testcase name="unSuccessfulLoginWithEmptyDataTest()" classname="test.api.RequestTest" time="0.474"/>
+  <system-out><![CDATA[Request URI:	https://playground.learnqa.ru/api/get_auth_cookie
+HTTP/1.1 200 OK
+{
+    "error": "Wrong data"
+}
+Request URI:	https://reqres.in/api/login
+HTTP/1.1 400 Bad Request
+{
+    "error": "Missing email or username"
+}
+Request URI:	https://reqres.in/api/login
+HTTP/1.1 400 Bad Request
+{
+    "error": "Missing password"
+}
+Request URI:	https://reqres.in/api/login
+HTTP/1.1 415 Unsupported Media Type
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Error</title>
+  </head>
+  <body>
+    <pre>Unsupported Media Type</pre>
+  </body>
+</html>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

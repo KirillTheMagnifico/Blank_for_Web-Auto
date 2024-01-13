@@ -1,11 +1,10 @@
-package test;
+package test.api;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
-import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
 public class RequestTest {
@@ -17,6 +16,7 @@ public class RequestTest {
      */
 
     @Test
+    @Tag("api")
     void UnsuccessfulLoginTest() {
         String body = "{ \"login\": \"Kirill\", \"password\": \"123456\" }";
 // @ login : string
@@ -35,6 +35,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("api")
     void unSuccessfulLoginWithMissingEmailTest() {
         String body = "{ \"password\": \"cityslicka\" }";
 
@@ -52,6 +53,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("api")
     void unSuccessfulLoginWithMissingPasswordTest() {
         String body = "{ \"email\": \"eve.holt@reqres.in\" }";
 
@@ -69,6 +71,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("api")
     void unSuccessfulLoginWithEmptyDataTest() {
         given()
                 .log().uri()
