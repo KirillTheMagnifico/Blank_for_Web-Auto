@@ -1,4 +1,4 @@
-package test.api;
+package tests.api;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ public class RequestTest {
      */
 
     @Test
-    @Tag("api")
+    @Tag("tests")
     void UnsuccessfulLoginTest() {
         String body = "{ \"login\": \"Kirill\", \"password\": \"123456\" }";
 // @ login : string
@@ -35,6 +35,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("tests")
     @Tag("api")
     void unSuccessfulLoginWithMissingEmailTest() {
         String body = "{ \"password\": \"cityslicka\" }";
@@ -53,6 +54,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("tests")
     @Tag("api")
     void unSuccessfulLoginWithMissingPasswordTest() {
         String body = "{ \"email\": \"eve.holt@reqres.in\" }";
@@ -71,6 +73,7 @@ public class RequestTest {
     }
 
     @Test
+    @Tag("tests")
     @Tag("api")
     void unSuccessfulLoginWithEmptyDataTest() {
         given()

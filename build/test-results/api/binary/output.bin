@@ -1,28 +1,23 @@
-?Request URI:	https://playground.learnqa.ru/api/get_auth_cookie
-HTTP/1.1 200 OK
+)Request URI:	https://reqres.in/api/login
+HTTP/1.1 400 Bad Request
 {
-    "error": "Wrong data"
+)    "error": "Missing email or username"
 }
 )Request URI:	https://reqres.in/api/login
 HTTP/1.1 400 Bad Request
 {
-)    "error": "Missing email or username"
+     "error": "Missing password"
 }
 )Request URI:	https://reqres.in/api/login
-HTTP/1.1 400 Bad Request
-{
-     "error": "Missing password"
-}
-)Request URI:	https://reqres.in/api/login
-$HTTP/1.1 415 Unsupported Media Type
-<html lang="en">
-	  <head>
-    <meta charset="utf-8"/>
-    <title>Error</title>
-
+$HTTP/1.1 415 Unsupported Media Type
+<html lang="en">
+	  <head>
+    <meta charset="utf-8"/>
+    <title>Error</title>
+
   </head>
-	  <body>
-&    <pre>Unsupported Media Type</pre>
-
+	  <body>
+&    <pre>Unsupported Media Type</pre>
+
   </body>
-</html>
+</html>
