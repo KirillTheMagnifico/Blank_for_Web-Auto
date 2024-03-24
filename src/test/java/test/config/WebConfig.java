@@ -1,0 +1,24 @@
+package test.config;
+
+import org.aeonbits.owner.Config;
+
+@Config.Sources({
+        "classpath:${envWeb}.properties",
+})
+
+public interface WebConfig extends Config{
+
+    @Key("browserName")
+    @DefaultValue("chrome")
+    String getBrowserName();
+
+    @Key("browserVersion")
+    @DefaultValue("121.0")
+    String getBrowserVersion();
+
+    @Key("browserSize")
+    @DefaultValue("1920x1080")
+    String getBrowserSize();
+    @Key("remoteUrl")
+    String getRemoteUrl();
+}
