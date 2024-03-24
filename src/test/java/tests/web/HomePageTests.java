@@ -16,21 +16,35 @@ public class HomePageTests extends TestBase {
 
     @Test
     @Tag("web")
-    @DisplayName("Проверка страницы Kinopoisk")
+    @DisplayName("Проверка страницы")
     @Story("Проверка загрузки главной страницы")
     void checkHomePageTitleTest() {
-        step("Откроем главную", () -> {
-            homePage.openPage("https://www.kinopoisk.ru");
+        step("Откроем главную и проверим логотип компании", () -> {
+            homePage.openPage("https://shop.tastycoffee.ru/");
+            homePage.CheckLogo();
         });
     }
 
     @Test
-    @Tag ("web")
-    @DisplayName("Проверим поиск")
-    @Story("Заполним строку поиска запросом и найдем что-то")
-    void SearchTest() {
+    @Tag("web")
+    @DisplayName("Проскроллим страничку до самого низа")
+    @Story("Скролл страницы")
+    void ScrollTest() {
         step("Откроем главную", () -> {
-            homePage.openPage("https://www.kinopoisk.ru");
+            homePage.openPage("https://shop.tastycoffee.ru/");
+            homePage.ViewText();
         });
     }
+    @Test
+    @Tag("web")
+    @DisplayName("Авторизуемся на главной странице")
+    @Story("Проверка авторизации")
+    void authTest() {
+        step("Откроем главную", () -> {
+            homePage.openPage("https://shop.tastycoffee.ru/");
+        });
+        step("Нажмем войти и введем данные для входа", () -> {
+            homePage.Authorization();
+        });
+        }
 }

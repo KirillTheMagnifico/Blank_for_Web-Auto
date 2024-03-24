@@ -1,35 +1,45 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
 
-    private SelenideElement Search = $(By.ByClassName.name("searchTerm")),
-            SearchButton = $x("/html/body/div[1]/div[1]/div[1]/div/div[3]/div/div[7]/div/div/form/div/div[2]/a[2]"),
-            SearchText =  $x("/html/body/div[1]/div[2]/div/div[1]/div[3]/div[2]/div[1]/div/div/span/div/h1");
+    private SelenideElement logo = $x("/html/body/div[1]/header/div[1]/div/div[7]/a/img"),
+            AuthButton = $(".enter-h .greyLink.enterOpen"),
+            Email =  $x("/html/body/div[1]/header/div[4]/div[1]/div[2]/div[1]/form/div[1]/div/input"),
+            Password = $x("/html/body/div[1]/header/div[4]/div[1]/div[2]/div[1]/form/div[2]/div/input"),
+            Enter = $(".popupEn .popupEn-f .tab-content .btn-wrap .blackBtn, .popupEn .popupEn-f .tab-content .btn-wrap .grayBtn");
+
     public HomePage openPage(String pageAddress) {
         open(pageAddress);
         return this;
     }
+     public HomePage CheckLogo() {
+        logo.shouldBe(visible);;
+        return this;
+     }
 
-    // public HomePage clickSearch() {
-    //   Search.setValue("Колбаса");
-    //    SearchButton.click();
-    //    return this;
-    // }
-
-    //public HomePage verifyText() {
-    //   SearchText.shouldBe(visible);
-    //   return this;
-    // }
-
-    // public HomePage clickStartNavLink(String linkText) {
-    //   $x("//a[@class='nav-link'][contains(text(),'" + linkText + "')]").click();
-    //   return this;
-    //}
+     public HomePage ViewText() {
+       $x("/html/body/footer/div[2]/div/div/div[1]/div").scrollTo();
+       sleep(1000);
+       return this;
+    }
+    public HomePage Authorization() {
+        AuthButton.click();
+        sleep(100);
+        Email.setValue("serkirsuperstar@mail.ru");
+        Password.setValue("Al25ki06");
+        Enter.click();
+        sleep(100);
+        openPage("https://shop.tastycoffee.ru/profile");
+        sleep(10000);
+        return this;
+    }
 }
 
 
