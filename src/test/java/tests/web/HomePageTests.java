@@ -35,6 +35,7 @@ public class HomePageTests extends TestBase {
             homePage.ViewText();
         });
     }
+
     @Test
     @Tag("web")
     @DisplayName("Авторизуемся на главной странице")
@@ -42,9 +43,7 @@ public class HomePageTests extends TestBase {
     void authTest() {
         step("Откроем главную", () -> {
             homePage.openPage("https://shop.tastycoffee.ru/");
-        });
-        step("Нажмем войти и введем данные для входа", () -> {
             homePage.Authorization();
         });
-        }
+    }
 }
