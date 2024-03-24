@@ -26,16 +26,14 @@ public class HomePage {
 
      public HomePage ViewText() {
        $x("/html/body/footer/div[2]/div/div/div[1]/div").scrollTo();
-       sleep(1000);
+       sleep(10000);
        return this;
     }
     public HomePage Authorization() {
         AuthButton.click();
-        sleep(100);
         Email.setValue("serkirsuperstar@mail.ru");
         Password.setValue("Al25ki06");
         Enter.click();
-        sleep(100);
         openPage("https://shop.tastycoffee.ru/profile");
         sleep(10000);
         return this;
