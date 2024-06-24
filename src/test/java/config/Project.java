@@ -16,11 +16,11 @@ public class Project {
         return horizontalSize <= 980;
     }
 
-    public static boolean isRemoteWebDriver() {
-        return !config.remoteDriverUrl().equals("");
-    }
+    //public static boolean isRemoteWebDriver() {
+        //return !config.remoteDriverUrl().equals("https://shop.tastycoffee.ru/");
+    //}
 
-    public static boolean isVideoOn() {
-        return !config.videoStorage().equals("");
-    }
+    //public static boolean isVideoOn() {
+      //  return !config.videoStorage().equals("");
+    //}
 }

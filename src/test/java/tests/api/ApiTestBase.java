@@ -17,6 +17,6 @@ public class ApiTestBase {
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         RestAssured.baseURI = App.config.apiUrl();
-        usersSetUp();
+        //usersSetUp();
     }
 }

@@ -1,10 +1,10 @@
-package web;
+package tests.web;
 
 import com.codeborne.selenide.Configuration;
 import io.restassured.RestAssured;
-import ru.rendezvous.config.App;
-import ru.rendezvous.helpers.AllureAttachments;
-import ru.rendezvous.helpers.DriverSettings;
+import config.App;
+import helpers.AllureAttachments;
+import helpers.DriverSettings;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.junit5.AllureJunit5;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import static ru.rendezvous.helpers.UsersSetUp.usersSetUp;
+
 
 
 @ExtendWith({AllureJunit5.class})

@@ -1,4 +1,4 @@
-package ru.rendezvous.config;
+package config;
 
 import org.aeonbits.owner.Config;
 

@@ -14,7 +14,7 @@ public interface ProjectConfig extends Config {
     @Key("browser")
     String browser();
 
-    @DefaultValue("91.0")
+    @DefaultValue("125.0")
     @Key("browserVersion")
     String browserVersion();
 
@@ -25,8 +25,6 @@ public interface ProjectConfig extends Config {
     @Key("browserMobileView")
     String browserMobileView();
 
-    @Key("remoteDriverUrl")
-    String remoteDriverUrl();
 
     @Key("videoStorage")
     String videoStorage();

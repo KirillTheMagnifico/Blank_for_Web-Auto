@@ -1,4 +1,4 @@
-package ru.rendezvous.apiSpecs;
+package config.apiSpecs;
 
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -7,8 +7,8 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
-import static ru.rendezvous.helpers.AllureRestAssuredFilter.withCustomTemplates;
-import static ru.rendezvous.helpers.ApiHelpers.createAuthSession;
+import static helpers.AllureRestAssuredFilter.withCustomTemplates;
+
 
 public class ApiSpecs {
 
@@ -21,19 +21,6 @@ public class ApiSpecs {
             .log().body()
             .contentType(ContentType.JSON);
 
-    public static RequestSpecification requestAuthSpec = with()
-            .cookie("PHPSESSID3", createAuthSession("other"))
-            .filter(withCustomTemplates())
-            .log().uri()
-            .log().body()
-            .contentType(ContentType.JSON);
-
-    public static RequestSpecification requestOrdersAuthSpec = with()
-            .cookie("PHPSESSID3", createAuthSession("order"))
-            .filter(withCustomTemplates())
-            .log().uri()
-            .log().body()
-            .contentType(ContentType.JSON);
 
     public static ResponseSpecification responseSpec = new ResponseSpecBuilder()
             .expectStatusCode(200)
