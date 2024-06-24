@@ -14,13 +14,13 @@ public class DriverSettings {
 
         String userAgent = "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1";
 
-        Configuration.browser = Project.config.browser();
-        browserVersion = Project.config.browserVersion();
-        Configuration.browserSize = Project.config.browserSize();
+        Configuration.browser = config.WebConfig.browser();
+        browserVersion = config.WebConfig.browserVersion();
+        Configuration.browserSize = config.WebConfig.browserSize();
 
 
         if (Project.isRemoteWebDriver()) {
-            Configuration.remote = Project.config.remoteDriverUrl();
+            Configuration.remote = config.WebConfig.remoteDriverUrl();
         }
 
         if (Configuration.browser.equals("chrome")) {
