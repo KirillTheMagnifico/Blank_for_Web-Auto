@@ -2,23 +2,32 @@ package config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "classpath:${envWeb}.properties",
+        "system:properties",
+        "classpath:config/local.properties",
+        "classpath:config/remote.properties"
 })
+public interface ProjectConfig extends Config {
 
-public interface WebConfig extends Config{
-
-    @Key("browserName")
     @DefaultValue("chrome")
-    String getBrowserName();
+    @Key("browser")
+    String browser();
 
+    @DefaultValue("91.0")
     @Key("browserVersion")
-    @DefaultValue("121.0")
-    String getBrowserVersion();
+    String browserVersion();
 
-    @Key("browserSize")
     @DefaultValue("1920x1080")
-    String getBrowserSize();
-    @Key("remoteUrl")
-    String getRemoteUrl();
+    @Key("browserSize")
+    String browserSize();
+
+    @Key("browserMobileView")
+    String browserMobileView();
+
+    @Key("remoteDriverUrl")
+    String remoteDriverUrl();
+
+    @Key("videoStorage")
+    String videoStorage();
 }
