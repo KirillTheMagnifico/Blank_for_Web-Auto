@@ -43,7 +43,27 @@ public class HomePageTests extends TestBase {
     void authTest() {
         step("Откроем главную", () -> {
             homePage.openPage("https://shop.tastycoffee.ru/");
-            homePage.Authorization();
+        });
+        step("Авторизуемся", () -> { homePage.Authorization();
+            });
+        step("Разлогиниваемся", () -> { homePage.logout();
         });
     }
+
+
+    @Test
+    @Tag("web")
+    @DisplayName("Проверка корзины Авторизованным")
+    @Story("Проверка корзины")
+    void  cartTest() {
+        step("Откроем главную", () -> {
+            homePage.openPage("https://shop.tastycoffee.ru/");
+        });
+        step("Авторизуемся", () -> { homePage.Authorization();
+        });
+        step("Добавляем в корзину товар и удаляем его", () -> {homePage.cartAdded();
+        });
+        step("Разлогиниваемся", () -> { homePage.logout();
+        });
+}
 }

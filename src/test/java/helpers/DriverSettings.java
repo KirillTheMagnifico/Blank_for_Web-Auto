@@ -23,7 +23,7 @@ public class DriverSettings {
         if (Configuration.browser.equals("chrome")) {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--no-sandbox");
-            //chromeOptions.addArguments("--headless");
+            chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--disable-infobars");
             chromeOptions.addArguments("--disable-popup-blocking");
