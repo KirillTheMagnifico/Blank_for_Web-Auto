@@ -1,6 +1,6 @@
 plugins {
     id 'java-library'
-    id 'io.qameta.allure' version '2.10.0'
+    id 'io.qameta.allure' version '2.12.0'
     id "io.freefair.lombok" version "6.0.0-m2"
 }
 
@@ -9,9 +9,9 @@ repositories {
     maven {url = "https://dl.bintray.com/qameta/maven-unstable/"}
 }
 
-def allureVersion = "2.20.1",
+def allureVersion = "2.29.0",
     selenideVersion = "7.1.0",
-    junitVersion = "5.7.2"
+    junitVersion = "5.9.1"
 
 
 allure {
@@ -30,7 +30,7 @@ allure {
 
 dependencies {
     testImplementation(
-            "org.aspectj:aspectjweaver:1.9.7",
+            "org.aspectj:aspectjweaver:1.9.22",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "com.github.javafaker:javafaker:1.0.2",
@@ -43,19 +43,19 @@ dependencies {
             'org.jdom:jdom:2.0.2',
             "mysql:mysql-connector-java:8.0.28",
             'com.fasterxml.jackson.core:jackson-core:2.13.1',
-            'com.fasterxml.jackson.core:jackson-databind:2.13.3')
+            'com.fasterxml.jackson.core:jackson-databind:2.13.4.1')
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:1.7.29",
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 
@@ -65,6 +65,7 @@ tasks.withType(Test) {
                 'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
                 'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
                 'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+                'junit.jupiter.extensions.autodetection.enabled'           : true,
                 'junit.jupiter.execution.parallel.config.fixed.parallelism': System.getProperty("threads").toInteger()
         ]
     }
@@ -73,21 +74,20 @@ tasks.withType(Test) {
         lifecycle {
 //            events "started", "failed"
             events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
+            exceptionFormat "full"
         }
     }
 }
 
-tasks.register("uiTest", Test) {
-    useJUnitPlatform {
-        includeTags "ui"
-        excludeTags "api"
-    }
-}
+//tasks.register("uiTest", Test) {
+    //useJUnitPlatform {
+      //  includeTags "ui"
+    //    excludeTags "api"
+  //  }
+//}
 
-tasks.register("apiTest", Test) {
-    useJUnitPlatform {
-        includeTags "api"
-        excludeTags "ui"
-    }
-}
+//tasks.register("apiTest", Test) {
+  //  useJUnitPlatform {
+    //    includeTags "api"
+      //  excludeTags "ui"
+    //}
